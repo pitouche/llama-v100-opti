@@ -1,0 +1,5 @@
+{"target_chars": 8294, "wall_s": 32.33, "prompt_tokens": 1560, "gen_tokens": 160, "prefill_tps": 793.7, "gen_tps": 69.18, "gen_s": 2.31}
+{"target_chars": 33177, "wall_s": 181.99, "prompt_tokens": 5960, "gen_tokens": 160, "prefill_tps": 880.4, "gen_tps": 63.44, "gen_s": 2.52}
+{"target_chars": 66355, "wall_s": 181.69, "prompt_tokens": 11861, "gen_tokens": 160, "prefill_tps": 859.4, "gen_tps": 50.38, "gen_s": 3.18}
+{"target_chars": 132710, "wall_s": 200.58, "prompt_tokens": 23761, "gen_tokens": 160, "prefill_tps": 813.9, "gen_tps": 44.61, "gen_s": 3.59}
+{"target_chars": 222750, "wall_s": 260.01, "prompt_tokens": 40004, "gen_tokens": 160, "prefill_tps": 744.7, "gen_tps": 39.61, "gen_s": 4.04}

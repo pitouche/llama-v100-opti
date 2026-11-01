@@ -1,0 +1,16 @@
+==PROF== Connected to process 486441 (/home/guile/llama-experiments/bench/mb_fa)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] route=t3 ok (backend=0x57f261bc76c0 ctx=0x57f261ee8ff0 stream=(nil))
+[mb] buffer 760365056 octets ok, base=0x7ce38c000000 (Q=0.2MB KV=117.0MB out=524.5MB)
+==ERROR== ERR_NVGPUCTRPERM - The user does not have permission to access NVIDIA GPU Performance Counters on the target device 0. For instructions on enabling permissions and to get more information see https://developer.nvidia.com/ERR_NVGPUCTRPERM
+{"mode":"t3","T":1,"n_kv":107520,"us_med":671.7,"us_min":630.8,"us_max":671.7,"out":[12.0948,1.73144,-0.852149,-5.24404]}
+{"mode":"t3","T":2,"n_kv":107520,"us_med":727.0,"us_min":690.2,"us_max":727.0,"out":[12.0948,1.73144,-0.852149,-5.24404]}
+{"mode":"t3","T":3,"n_kv":107520,"us_med":871.4,"us_min":841.7,"us_max":871.4,"out":[12.095,1.7314,-0.852223,-5.24418]}
+{"mode":"t3","T":4,"n_kv":107520,"us_med":839.7,"us_min":803.8,"us_max":839.7,"out":[12.095,1.7314,-0.852223,-5.24418]}
+{"mode":"t3","T":5,"n_kv":107520,"us_med":1014.8,"us_min":920.6,"us_max":1014.8,"out":[12.095,1.7314,-0.852223,-5.24418]}
+{"mode":"t3","T":6,"n_kv":107520,"us_med":1415.2,"us_min":1392.6,"us_max":1415.2,"out":[12.095,1.7314,-0.852168,-5.24416]}
+{"mode":"t3","T":7,"n_kv":107520,"us_med":1444.9,"us_min":1350.7,"us_max":1444.9,"out":[12.095,1.7314,-0.852168,-5.24416]}
+{"mode":"t3","T":8,"n_kv":107520,"us_med":1412.1,"us_min":1398.8,"us_max":1412.1,"out":[12.095,1.7314,-0.852168,-5.24416]}
+==PROF== Disconnected from process 486441
+==WARNING== No kernels were profiled.

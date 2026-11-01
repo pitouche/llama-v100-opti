@@ -1,0 +1,2 @@
+{"req": "A-contam", "ctx": 114688, "gen": 64, "vram_mib": 32438, "prompt_tokens_api": 111755, "gen_tokens_api": 64, "wall_s": 184.4, "prompt_tps": 621.5, "prompt_tokens": 111713, "eval_tps": 14.72, "eval_tokens": 64, "eval_ms": 4346.5}
+{"req": "B-steady", "ctx": 114688, "gen": 128, "vram_mib": 32438, "prompt_tokens_api": 111755, "gen_tokens_api": 128, "wall_s": 2.7, "prompt_tps": 28.5, "prompt_tokens": 4, "eval_tps": 53.85, "eval_tokens": 128, "eval_ms": 2377.1}

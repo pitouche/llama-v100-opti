@@ -1,0 +1,3 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x5a0563d1aa50 ctx=0x5a0563d8d520 so=/home/guile/llama-experiments/ollama-v100/lib/ollama/cuda_v12/libggml-cuda.so)

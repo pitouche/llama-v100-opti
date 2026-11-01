@@ -1,0 +1,50 @@
+##### PROD (Q6 T=4)
+==PROF== Connected to process 407584 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x5fe833119120 ctx=0x5fe83342b0e0 so=/home/guile/llama-experiments/ollama-v100/lib/ollama/cuda_v12/libggml-cuda.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":204.8,"us_min":201.7,"us_max":201562.2,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 407584
+[407584] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)4>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (4352, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,20
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        59,08
+    gpu__time_duration.avg                                     usecond       147,74
+    l1tex__t_sector_hit_rate.pct                                     %        83,02
+    launch__registers_per_thread                       register/thread           96
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 438 731
+    sm__inst_executed.avg                                         inst   449 779,20
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        63,97
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        26,81
+    -------------------------------------------------- --------------- ------------
+
+##### ON (Q6 T=4)
+==PROF== Connected to process 407606 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x55cfaddd8e80 ctx=0x55cfae0eaf00 so=/home/guile/llama-experiments/h2/cupti129-test/e2/h2lib/lib/libggml-cuda-q6x4.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":202.8,"us_min":199.6,"us_max":197153.8,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 407606
+[407606] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)4, (bool)1>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (4352, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,20
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        60,27
+    gpu__time_duration.avg                                     usecond       146,66
+    l1tex__t_sector_hit_rate.pct                                     %        82,95
+    launch__registers_per_thread                       register/thread           96
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 446 802
+    sm__inst_executed.avg                                         inst   426 060,80
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        60,68
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        26,80
+    -------------------------------------------------- --------------- ------------
+

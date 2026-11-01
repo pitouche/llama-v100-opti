@@ -1,0 +1,79 @@
+n blocs detailles: 24
+bloc T    DUR(us)  MEM%  DRAM_GB/s  SM%   IPC  OccTh% OccAc%   Stalls(cycle/warp, top4)
+   1  1.     516,29   53,32     463,57  21,11   0,89   18,75   18,67  
+   2  1.     512,51   53,21     466,32  20,78   0,88   18,75   18,66  
+   3  1t     515,36   53,12     464,37  21,21   0,89   18,75   18,64  
+   4  2.     557,28   51,96     430,61  24,30   1,02   18,75   18,62  
+   5  2.     565,22   52,40     424,90  24,50   1,02   18,75   18,61  
+   6  2t     566,94   52,40     423,39  24,51   1,02   18,75   18,62  
+   7  3.     735,87   43,12     322,45  22,05   0,92   12,50   12,48  
+   8  3.     736,58   43,32     322,23  22,15   0,92   12,50   12,48  
+   9  3t     732,51   43,09     323,87  22,03   0,92   12,50   12,48  
+  10  4.     738,78   43,08     322,53  22,07   0,92   12,50   12,48  
+  11  4.     736,70   43,00     323,51  22,02   0,92   12,50   12,48  
+  12  4t     739,10   42,83     322,46  21,93   0,92   12,50   12,48  
+  13  5.     875,74   42,33     274,03  21,64   0,91   12,50   12,48  
+  14  5.     871,23   42,08     275,39  21,52   0,91   12,50   12,48  
+  15  5t     874,08   42,16     274,40  21,56   0,91   12,50   12,48  
+  16  6.       1,33   46,62     177,70  23,93   0,98   12,50   12,49  
+  17  6.       1,34   46,55     177,36  23,90   0,98   12,50   12,49  
+  18  6t       1,33   46,41     177,77  23,82   0,98   12,50   12,49  
+  19  7.       1,35   46,17     176,05  23,65   0,97   12,50   12,49  
+  20  7.       1,35   46,33     176,25  23,73   0,97   12,50   12,49  
+  21  7t       1,35   46,25     175,79  23,69   0,97   12,50   12,49  
+  22  8.       1,32   47,17     180,00  24,18   0,99   12,50   12,49  
+  23  8.       1,32   47,15     180,49  24,17   0,99   12,50   12,49  
+  24  8t       1,33   47,03     179,12  24,11   0,99   12,50   12,49  
+
+=== bloc T=1 timed : Memory Workload Tables (qui lit quoi, a quelle freq) ===
+OPT   Est. Speedup: 40.24%                                                                                          
+          The memory access pattern for global loads from L1TEX might not be optimal. On average, only 5.9 of the 32    
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global loads.                                      
+    ----- --------------------------------------------------------------------------------------------------------------
+    OPT   Est. Speedup: 1.122%                                                                                          
+          The memory access pattern for global stores to L1TEX might not be optimal. On average, only 31.3 of the 32    
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global stores.                                     
+    ----- --------------------------------------------------------------------------------------------------------------
+    OPT   Est. Speedup: 6.761%                                                                                          
+          The memory access pattern for shared stores might not be optimal and causes on average a 2.1 - way bank       
+          conflict across all 65760 shared store requests.This results in 17849 bank conflicts,  which represent        
+          13.00% of the overall 137285 wavefronts for shared stores. Check the Source Counters section for uncoalesced  
+          shared stores.
+
+=== bloc T=1 timed : Scheduler Statistics ===
+---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        22,28
+    Issued Warp Per Scheduler                        0,22
+    No Eligible                            %        77,72
+    Active Warps Per Scheduler          warp         2,97
+    Eligible Warps Per Scheduler        warp         0,27
+    ---------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 46.88%                                                                                    
+          Every scheduler is capable of issuing one instruction per cycle, but for this kernel each scheduler only      
+          issues an instruction every 4.5 cycles. This might leave hardware resources underutilized and may lead to     
+          less optimal performance. Out of the maximum of 16 warps per scheduler, this kernel allocates an average of   
+          2.97 active warps per scheduler, but only an average of 0.27 warps were eligible per cycle. Eligible warps    
+          are the subset of active warps that are ready to issue their next instruction. Every cycle with no eligible   
+          warp results in no instruction being issued and the issue slot remains unused. To increase the number of      
+          eligible warps, avoid possible load imbalances due to highly different execution durations per warp.          
+          Red
+
+=== bloc T=1 timed : Compute Workload (pipes) ===
+-------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         0,89
+    Executed Ipc Elapsed  inst/cycle         0,85
+    Issue Slots Busy               %        22,34
+    Issued Ipc Active     inst/cycle         0,89
+    SM Busy                        %        22,34
+    -------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 84.95%                                                                                    
+          All compute pipelines are under-utilized. Either this kernel is very small or it doesn't issue enough warps   
+          per scheduler. Check the Launch Statistics and Scheduler Statistics sections for further details.

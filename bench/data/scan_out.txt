@@ -1,0 +1,172 @@
+==PROF== Connected to process 582239 (/home/guile/llama-experiments/bench/mb_gemm_scan)
+SHAPE idx=0 m=17408 n=2048 k=5120  (ffn_up   (m=17408 n=2048 k=5120))
+SHAPE idx=1 m=5120 n=2048 k=17408  (ffn_down (m=5120 n=2048 k=17408))
+SHAPE idx=2 m=6144 n=2048 k=5120  (q_proj   (m=6144 n=2048 k=5120))
+SHAPE idx=3 m=1024 n=2048 k=5120  (k_proj   (m=1024 n=2048 k=5120))
+SHAPE idx=4 m=5120 n=2048 k=6144  (o_proj   (m=5120 n=2048 k=6144))
+SHAPE idx=5 m=8192 n=2048 k=5120  (qkv_fuse (m=8192 n=2048 k=5120))
+SHAPE idx=6 m=34816 n=2048 k=5120  (upgate   (m=34816 n=2048 k=5120))
+==PROF== Profiling "Kernel2" - 0 (1/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "Kernel2" - 1 (2/24): 0%....50%....100% - 1 pass
+SHAPE idx=7 m=2048 n=17408 k=5120  (TT up    (m=2048 n=17408 k=5120))
+==PROF== Profiling "volta_s884gemm_fp16_256x128_l..." - 2 (3/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "volta_s884gemm_fp16_256x128_l..." - 3 (4/24): 0%....50%....100% - 1 pass
+SHAPE idx=8 m=2048 n=5120 k=17408  (TT down  (m=2048 n=5120 k=17408))
+==PROF== Profiling "Kernel2" - 4 (5/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "Kernel2" - 5 (6/24): 0%....50%....100% - 1 pass
+SHAPE idx=9 m=16384 n=2176 k=6144  (weird16  (m=16384 n=2176 k=6144))
+==PROF== Profiling "Kernel2" - 6 (7/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "Kernel2" - 7 (8/24): 0%....50%....100% - 1 pass
+SHAPE idx=10 m=2176 n=16384 k=5120  (weird17  (m=2176 n=16384 k=5120))
+==PROF== Profiling "volta_s884gemm_fp16_256x128_l..." - 8 (9/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "volta_s884gemm_fp16_256x128_l..." - 9 (10/24): 0%....50%....100% - 1 pass
+SHAPE idx=11 m=17408 n=1440 k=5120  (ffn_up1440 (m=17408 n=1440 k=5120))
+==PROF== Profiling "Kernel2" - 10 (11/24): 0%....50%....100% - 1 pass
+==PROF== Profiling "Kernel2" - 11 (12/24): 0%....50%....100% - 1 pass
+SCAN_DONE
+==PROF== Disconnected from process 582239
+[582239] mb_gemm_scan@127.0.0.1
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (128, 34, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         8,85
+    launch__block_size                                            128
+    launch__grid_size                                           4 352
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (128, 34, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         8,84
+    launch__block_size                                            128
+    launch__grid_size                                           4 352
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  volta_s884gemm_fp16_256x128_ldg8_tn (8, 136, 2)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,37
+    launch__block_size                                            256
+    launch__grid_size                                           2 176
+    launch__registers_per_thread         register/thread          250
+    launch__shared_mem_per_block_dynamic     Kbyte/block        16,38
+    ------------------------------------ --------------- ------------
+
+  volta_s884gemm_fp16_256x128_ldg8_tn (8, 136, 2)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,04
+    launch__block_size                                            256
+    launch__grid_size                                           2 176
+    launch__registers_per_thread         register/thread          250
+    launch__shared_mem_per_block_dynamic     Kbyte/block        16,38
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (320, 2, 2)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         4,43
+    launch__block_size                                            128
+    launch__grid_size                                           1 280
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (320, 2, 2)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         4,29
+    launch__block_size                                            128
+    launch__grid_size                                           1 280
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (136, 16, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,50
+    launch__block_size                                            128
+    launch__grid_size                                           2 176
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (136, 16, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,20
+    launch__block_size                                            128
+    launch__grid_size                                           2 176
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  volta_s884gemm_fp16_256x128_ldg8_tn (9, 128, 2)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,43
+    launch__block_size                                            256
+    launch__grid_size                                           2 304
+    launch__registers_per_thread         register/thread          250
+    launch__shared_mem_per_block_dynamic     Kbyte/block        16,38
+    ------------------------------------ --------------- ------------
+
+  volta_s884gemm_fp16_256x128_ldg8_tn (9, 128, 2)x(256, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         5,22
+    launch__block_size                                            256
+    launch__grid_size                                           2 304
+    launch__registers_per_thread         register/thread          250
+    launch__shared_mem_per_block_dynamic     Kbyte/block        16,38
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (96, 17, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         3,59
+    launch__block_size                                            128
+    launch__grid_size                                           1 632
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (96, 17, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       msecond         3,52
+    launch__block_size                                            128
+    launch__grid_size                                           1 632
+    launch__registers_per_thread         register/thread          236
+    launch__shared_mem_per_block_dynamic     Kbyte/block        32,77
+    ------------------------------------ --------------- ------------
+

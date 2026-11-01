@@ -1,0 +1,5 @@
+{"tag": "98k 512 rep1", "ctx": 98304, "batch": 512, "vram_ready_mib": 27292, "wall_s": 174.6, "prompt_tps": 583.1, "eval_tps": 14.84}
+{"tag": "98k 512 rep2", "ctx": 98304, "batch": 512, "vram_ready_mib": 27292, "wall_s": 172.7, "prompt_tps": 587.7, "eval_tps": 17.23}
+{"tag": "98k 2048 ctrl", "ctx": 98304, "batch": 2048, "vram_ready_mib": 27908, "wall_s": 153.9, "prompt_tps": 657.1, "eval_tps": 22.98}
+{"tag": "80k 512 bisection", "ctx": 81920, "batch": 512, "vram_ready_mib": 27292, "wall_s": 134.1, "prompt_tps": 631.3, "eval_tps": 21.3}
+{"tag": "65k 512 ctrl", "ctx": 65536, "batch": 512, "vram_ready_mib": 27292, "wall_s": 100.2, "prompt_tps": 679.8, "eval_tps": 22.85}

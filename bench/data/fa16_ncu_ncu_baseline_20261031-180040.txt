@@ -1,0 +1,27 @@
+==PROF== Connected to process 618343 (/home/guile/llama-experiments/bench/mb_fa_pf)
+[mb_pf] device 0 = Tesla V100-PCIE-32GB (SM 7.0, 80 SM, 31.7 GB)
+[mb_pf] T=2048 n_kv=114688 (pad 114688) iters=5
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb_pf] route ok (backend=0x63533de0a280 ctx=0x63533e12bd70)
+[mb_pf] buffer 1107296256 octets (1056.0 MB), base=0x79b9ee000000 (Q=48.0 KV=224.0 mask=448.0 out=48.0 MB)
+==PROF== Profiling "flash_attn_ext_f16": 0%....50%....100% - 1 pass
+{"T":2048,"n_kv":114688,"us_med":213639.2,"us_min":192478.2,"us_max":401767.5,"finite":true,"out":[0.00168744,0.00274759,-0.000994878,0.00136717]}
+==PROF== Disconnected from process 618343
+[618343] mb_fa_pf@127.0.0.1
+  void flash_attn_ext_f16<(int)256, (int)256, (int)32, (int)2, (bool)0, (bool)0, (bool)0, (bool)0>(const char *, const char *, const char *, const char *, const char *, const int *, float *, float2 *, float, float, float, float, unsigned int, float, int, uint3, int, int, int, int, int, int, int, int, int, int, int, long, int, int, long, int, int, int, int, int, long) (768, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ----------------------------------------- --------------- -------------
+    Metric Name                                   Metric Unit  Metric Value
+    ----------------------------------------- --------------- -------------
+    gpu__time_duration.sum                            msecond        213,50
+    launch__block_size                                                  128
+    launch__grid_size                                                   768
+    launch__occupancy_limit_registers                   block             2
+    launch__occupancy_limit_shared_mem                  block             1
+    launch__registers_per_thread              register/thread           255
+    launch__shared_mem_per_block_dynamic          Kbyte/block         67,58
+    launch__waves_per_multiprocessor                                   9,60
+    sm__inst_executed_pipe_tensor_op_hmma.sum            inst 8 455 716 864
+    ----------------------------------------- --------------- -------------
+

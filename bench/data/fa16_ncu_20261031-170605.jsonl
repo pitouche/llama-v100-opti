@@ -1,0 +1,5 @@
+{"case": "ncu_baseline", "T": 2048, "env": {}, "ncu_rc": 1}
+{"case": "ncu_16x2", "T": 2048, "env": {"GGML_CUDA_VOLTA_FA_NCOLS1": "16"}, "ncu_rc": 1}
+{"case": "ncu_compact_t2048", "T": 2048, "env": {"GGML_CUDA_VOLTA_FA_COMPACT_TMAX": "8192"}, "ncu_rc": 1}
+{"case": "ncu_compact_t1024", "T": 1024, "env": {"GGML_CUDA_VOLTA_FA_COMPACT_TMAX": "2048"}, "ncu_rc": 1}
+{"case": "ncu_16x2_t1024", "T": 1024, "env": {"GGML_CUDA_VOLTA_FA_NCOLS1": "16"}, "ncu_rc": 1}

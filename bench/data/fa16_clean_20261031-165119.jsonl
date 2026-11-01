@@ -1,0 +1,11 @@
+{"case": "f16_prod", "T": 2048, "n_kv": 114688, "iters": 3, "kv": "f16", "env": {}, "wall_s": 3.2, "rc": 0, "us_med": 192403.5, "us_min": 191978.5, "us_max": 192487.4, "finite": true, "out": [0.00168744, 0.00274759, -0.000994878, 0.00136717]}
+{"case": "baseline", "error": "V100 pas idle avant baseline (VRAM=0 MiB)"}
+{"case": "f16_16x2", "error": "V100 pas idle avant f16_16x2 (VRAM=0 MiB)"}
+{"case": "compact_t2048", "error": "V100 pas idle avant compact_t2048 (VRAM=0 MiB)"}
+{"case": "baseline_t1024", "error": "V100 pas idle avant baseline_t1024 (VRAM=0 MiB)"}
+{"case": "compact_t1024", "error": "V100 pas idle avant compact_t1024 (VRAM=0 MiB)"}
+{"case": "f16_16x2_t1024", "T": 1024, "n_kv": 114688, "iters": 5, "kv": "f16", "env": {"GGML_CUDA_VOLTA_FA_NCOLS1": "16"}, "wall_s": 2.4, "rc": 0, "us_med": 82105.3, "us_min": 82006.0, "us_max": 82686.0, "finite": true, "out": [0.00109942, 0.00351791, -0.000735319, 0.00108835]}
+{"case": "ncu_baseline", "T": 2048, "env": {}, "ncu_rc": 1}
+{"case": "ncu_16x2", "T": 2048, "env": {"GGML_CUDA_VOLTA_FA_NCOLS1": "16"}, "ncu_rc": 1}
+{"case": "ncu_compact_t2048", "T": 2048, "env": {"GGML_CUDA_VOLTA_FA_COMPACT_TMAX": "8192"}, "ncu_rc": 1}
+{"case": "ncu_compact_t1024", "T": 1024, "env": {"GGML_CUDA_VOLTA_FA_COMPACT_TMAX": "2048"}, "ncu_rc": 1}

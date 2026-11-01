@@ -1,0 +1,25 @@
+==PROF== Connected to process 614107 (/home/guile/llama-experiments/bench/mb_fa_pf)
+[mb_pf] device 0 = Tesla V100-PCIE-32GB (SM 7.0, 80 SM, 31.7 GB)
+[mb_pf] T=2048 n_kv=114688 (pad 114688) iters=3
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb_pf] route ok (backend=0x6121a2f510f0 ctx=0x6121a3272be0)
+[mb_pf] buffer 1107296256 octets (1056.0 MB), base=0x772e2c000000 (Q=48.0 KV=224.0 mask=448.0 out=48.0 MB)
+==PROF== Profiling "flash_attn_mask_to_KV_max": 0%....50%....100% - 1 pass
+{"T":2048,"n_kv":114688,"us_med":182107.0,"us_min":182024.8,"us_max":182705.4,"finite":true,"out":[0.00170766,0.00278625,-0.00100135,0.00137054]}
+==PROF== Disconnected from process 614107
+[614107] mb_fa_pf@127.0.0.1
+  void flash_attn_mask_to_KV_max<(int)16>(const __half2 *, int *, int, long, long) (128, 1, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ------------------------------------ --------------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ------------------------------------ --------------- ------------
+    gpu__time_duration.sum                       usecond         6,11
+    launch__block_size                                            128
+    launch__grid_size                                             128
+    launch__occupancy_limit_registers              block           12
+    launch__occupancy_limit_shared_mem             block           32
+    launch__registers_per_thread         register/thread           40
+    launch__shared_mem_per_block_dynamic      byte/block            0
+    ------------------------------------ --------------- ------------
+

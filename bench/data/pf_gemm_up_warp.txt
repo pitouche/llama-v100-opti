@@ -1,0 +1,43 @@
+==PROF== Connected to process 585012 (/home/guile/llama-experiments/bench/mb_gemm_pf)
+[mb_gemm] device 0 = Tesla V100-PCIE-32GB (SM 7.0, 80 SM)
+[mb_gemm] m=17408 k=5120 n=2048 iters=1   (CUBLAS_OP_T/N, f16 in, f32 out, COMPUTE_32F, TENSOR_OP)
+[mb_gemm] cublas /home/guile/llama-experiments/ollama-v100/lib/ollama/cuda_v12/libcublas.so.12 ok (md5 prod 19bf1e6a…)
+==PROF== Profiling "Kernel2": 0%....50%....100% - 8 passes
+{"m":17408,"k":5120,"n":2048,"T":2048,"us_med":312754.2,"us_min":312754.2,"us_max":312754.2,"finite":true,"out":[-1.53594,2.48928,-1.16361,-5.49354]}
+==PROF== Disconnected from process 585012
+[585012] mb_gemm_pf@127.0.0.1
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (128, 17, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        52,55
+    Issued Warp Per Scheduler                        0,53
+    No Eligible                            %        47,45
+    Active Warps Per Scheduler          warp         1,97
+    Eligible Warps Per Scheduler        warp         0,79
+    ---------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 47.45%                                                                                    
+          Every scheduler is capable of issuing one instruction per cycle, but for this kernel each scheduler only      
+          issues an instruction every 1.9 cycles. This might leave hardware resources underutilized and may lead to     
+          less optimal performance. Out of the maximum of 16 warps per scheduler, this kernel allocates an average of   
+          1.97 active warps per scheduler, but only an average of 0.79 warps were eligible per cycle. Eligible warps    
+          are the subset of active warps that are ready to issue their next instruction. Every cycle with no eligible   
+          warp results in no instruction being issued and the issue slot remains unused. To increase the number of      
+          eligible warps, avoid possible load imbalances due to highly different execution durations per warp.          
+          Reducing stalls indicated on the Warp State Statistics and Source Counters sections can help, too.            
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle         3,75
+    Warp Cycles Per Executed Instruction           cycle         3,75
+    Avg. Active Threads Per Warp                                   32
+    Avg. Not Predicated Off Threads Per Warp                    31,75
+    ---------------------------------------- ----------- ------------
+
+    WRN   The optional metric smsp__pcsamp_sample_count could not be found. Collecting it as an additional metric could 
+          enable the rule to provide more guidance.                                                                     
+

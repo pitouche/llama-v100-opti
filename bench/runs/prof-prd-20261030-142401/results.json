@@ -1,0 +1,107 @@
+{
+ "ts": "20261030-142401",
+ "so_md5": "8035caf418244cfc3f6f12a1ec3e7fc1",
+ "ctx_tokens": 115000,
+ "decode_tokens": {
+  "off": 96,
+  "on": 160
+ },
+ "off": {
+  "tag": "off",
+  "spec_on": false,
+  "prefill": {
+   "prompt": 112060,
+   "cached": 42,
+   "completion": 16,
+   "prompt_ms": 181480.789,
+   "prompt_tps": 617.5,
+   "predicted_tps": 21.3,
+   "ms_per_tok": 46.9,
+   "finish": "length"
+  },
+  "prefill_wall_ms": 184536.0,
+  "prefill_rep": "/home/guile/llama-experiments/bench/prof_prd_off_prefill_20261030-142401.nsys-rep",
+  "prefill_sqlite": "/home/guile/llama-experiments/bench/prof_prd_off_prefill_20261030-142401.sqlite",
+  "prefill_bracket": [
+   1793370281116293,
+   1793370465652399
+  ],
+  "decode": {
+   "prompt": 112060,
+   "cached": 112056,
+   "completion": 96,
+   "prompt_ms": 107.684,
+   "prompt_tps": 1040637.4,
+   "predicted_tps": 21.62,
+   "ms_per_tok": 46.3,
+   "finish": "length"
+  },
+  "decode_wall_ms": 6638.0,
+  "decode_rep": "/home/guile/llama-experiments/bench/prof_prd_off_decode_20261030-142401.nsys-rep",
+  "decode_sqlite": "/home/guile/llama-experiments/bench/prof_prd_off_decode_20261030-142401.sqlite",
+  "decode_bracket": [
+   1793370733121693,
+   1793370739759965
+  ],
+  "server_stats": [
+   "slot print_timing: id  0 | task 0 | prompt eval time =     342.91 ms /    55 tokens (    6.23 ms per token,   160.39 tokens per second)",
+   "slot print_timing: id  0 | task 0 |        eval time =     588.88 ms /    16 tokens (   39.26 ms per token,    25.47 tokens per second)",
+   "slot print_timing: id  0 | task 19 | prompt eval time =  180880.26 ms / 112018 tokens (    1.61 ms per token,   619.29 tokens per second)",
+   "slot print_timing: id  0 | task 19 |        eval time =     673.83 ms /    16 tokens (   44.92 ms per token,    22.26 tokens per second)",
+   "slot print_timing: id  0 | task 91 | prompt eval time =     107.68 ms /     4 tokens (   26.92 ms per token,    37.15 tokens per second)",
+   "slot print_timing: id  0 | task 91 |        eval time =    4394.57 ms /    96 tokens (   46.26 ms per token,    21.62 tokens per second)"
+  ]
+ },
+ "on": {
+  "tag": "on",
+  "spec_on": true,
+  "prefill": {
+   "prompt": 112060,
+   "cached": 42,
+   "completion": 16,
+   "prompt_ms": 188442.203,
+   "prompt_tps": 594.7,
+   "predicted_tps": 4.29,
+   "ms_per_tok": 233.0,
+   "finish": "length"
+  },
+  "prefill_wall_ms": 194287.0,
+  "prefill_rep": "/home/guile/llama-experiments/bench/prof_prd_on_prefill_20261030-142401.nsys-rep",
+  "prefill_sqlite": "/home/guile/llama-experiments/bench/prof_prd_on_prefill_20261030-142401.sqlite",
+  "prefill_bracket": [
+   1793370785613741,
+   1793370979900944
+  ],
+  "decode": {
+   "prompt": 112060,
+   "cached": 112056,
+   "completion": 155,
+   "prompt_ms": 170.09,
+   "prompt_tps": 658827.7,
+   "predicted_tps": 33.86,
+   "ms_per_tok": 29.5,
+   "finish": "stop"
+  },
+  "decode_wall_ms": 6869.0,
+  "decode_rep": "/home/guile/llama-experiments/bench/prof_prd_on_decode_20261030-142401.nsys-rep",
+  "decode_sqlite": "/home/guile/llama-experiments/bench/prof_prd_on_decode_20261030-142401.sqlite",
+  "decode_bracket": [
+   1793371264520690,
+   1793371271389811
+  ],
+  "server_stats": [
+   "slot print_timing: id  0 | task 0 | prompt eval time =     535.87 ms /    55 tokens (    9.74 ms per token,   102.64 tokens per second)",
+   "slot print_timing: id  0 | task 0 |        eval time =     404.54 ms /    16 tokens (   26.97 ms per token,    37.08 tokens per second)",
+   "slot print_timing: id  0 | task 0 | draft acceptance = 0.84615 (   11 accepted /    13 generated), mean len =  3.75",
+   "slot print_timing: id  0 | task 0 |      acc per pos = (1.000, 0.750, 0.500, 0.500)",
+   "slot print_timing: id  0 | task 8 | prompt eval time =  188035.57 ms / 112018 tokens (    1.68 ms per token,   595.73 tokens per second)",
+   "slot print_timing: id  0 | task 8 |        eval time =    3294.76 ms /    16 tokens (  219.65 ms per token,     4.55 tokens per second)",
+   "slot print_timing: id  0 | task 8 | draft acceptance = 0.78571 (   11 accepted /    14 generated), mean len =  3.75",
+   "slot print_timing: id  0 | task 8 |      acc per pos = (1.000, 0.750, 0.500, 0.500)",
+   "slot print_timing: id  0 | task 69 | prompt eval time =     170.09 ms /     4 tokens (   42.52 ms per token,    23.52 tokens per second)",
+   "slot print_timing: id  0 | task 69 |        eval time =    4547.70 ms /   155 tokens (   29.53 ms per token,    33.86 tokens per second)",
+   "slot print_timing: id  0 | task 69 | draft acceptance = 0.70122 (  115 accepted /   164 generated), mean len =  3.80",
+   "slot print_timing: id  0 | task 69 |      acc per pos = (0.951, 0.732, 0.610, 0.512)"
+  ]
+ }
+}

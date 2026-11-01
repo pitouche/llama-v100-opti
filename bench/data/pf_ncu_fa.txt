@@ -1,0 +1,162 @@
+[553281] mb_fa_pf@127.0.0.1
+  void flash_attn_ext_f16<(int)256, (int)256, (int)32, (int)2, (bool)0, (bool)0, (bool)0, (bool)0>(const char *, const char *, const char *, const char *, const char *, const int *, float *, float2 *, float, float, float, float, unsigned int, float, int, uint3, int, int, int, int, int, int, int, int, int, int, int, long, int, int, long, int, int, int, int, int, long) (768, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ---------------------------------------------------------------------- --------------- -------------
+    Metric Name                                                                Metric Unit  Metric Value
+    ---------------------------------------------------------------------- --------------- -------------
+    dram__bytes_read.sum                                                             Gbyte          8,95
+    dram__bytes_write.sum                                                            Mbyte         56,85
+    dram__throughput.avg.pct_of_peak_sustained_elapsed                                   %          4,66
+    gpu__time_duration.sum                                                         msecond        216,24
+    launch__block_size                                                                               128
+    launch__grid_size                                                                                768
+    launch__occupancy_limit_blocks                                                   block            32
+    launch__occupancy_limit_registers                                                block             2
+    launch__occupancy_limit_shared_mem                                               block             1
+    launch__registers_per_thread                                           register/thread           255
+    launch__shared_mem_per_block_dynamic                                       Kbyte/block         67,58
+    launch__shared_mem_per_block_static                                         byte/block             0
+    launch__waves_per_multiprocessor                                                                9,60
+    lts__t_sectors_op_read.sum                                                      sector 3 172 523 424
+    lts__t_sectors_op_read_lookup_hit.sum                                           sector 2 921 977 355
+    lts__t_sectors_op_read_lookup_miss.sum                                          sector   251 372 299
+    sm__cycles_elapsed.max                                                           cycle   264 636 512
+    sm__inst_executed_pipe_tensor_op_hmma.sum                                         inst 8 455 716 864
+    sm__pipe_tensor_op_hmma_cycles_active.avg.pct_of_peak_sustained_active               %         27,44
+    sm__warps_active.avg.pct_of_peak_sustained_active                                    %          6,25
+    smsp__issue_active.avg.pct_of_peak_sustained_active                                  %         20,07
+    ---------------------------------------------------------------------- --------------- -------------
+
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ------------- --------------
+    Metric Name               Metric Unit   Metric Value
+    ----------------------- ------------- --------------
+    DRAM Frequency          cycle/usecond         872,42
+    SM Frequency            cycle/nsecond           1,23
+    Elapsed Cycles                  cycle    266 262 321
+    Memory Throughput                   %          44,21
+    DRAM Throughput                     %           4,66
+    Duration                      msecond         216,24
+    L1/TEX Cache Throughput             %          45,55
+    L2 Cache Throughput                 %          25,61
+    SM Active Cycles                cycle 256 801 976,25
+    Compute (SM) Throughput             %          30,38
+    ----------------------- ------------- --------------
+
+    OPT   This kernel exhibits low compute throughput and memory bandwidth utilization relative to the peak performance 
+          of this device. Achieved compute throughput and/or memory bandwidth below 60.0% of peak typically indicate    
+          latency issues. Look at Scheduler Statistics and Warp State Statistics for potential reasons.                 
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 2:1. The kernel achieved 1% of  
+          this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling Guide       
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on roofline      
+          analysis.                                                                                                     
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         0,80
+    Executed Ipc Elapsed  inst/cycle         0,78
+    Issue Slots Busy               %        20,07
+    Issued Ipc Active     inst/cycle         0,80
+    SM Busy                        %        31,30
+    -------------------- ----------- ------------
+
+    INF   Shared is the highest-utilized pipeline (31.3%) based on active cycles, taking into account the rates of its  
+          different instructions. It is the logical sum of several other pipelines which can't achieve full             
+          utilization on their own. It executes 64- and 16-bit floating point and tensor operations. It's dominated by  
+          its Tensor (FP) sub-pipeline. It is well-utilized, but should not be a bottleneck.                            
+
+    Section: Memory Workload Analysis
+    ----------------- ------------ ------------
+    Metric Name        Metric Unit Metric Value
+    ----------------- ------------ ------------
+    Memory Throughput Gbyte/second        41,65
+    Mem Busy                     %        44,21
+    Max Bandwidth                %        38,28
+    L1/TEX Hit Rate              %        31,29
+    L2 Hit Rate                  %        94,45
+    Mem Pipes Busy               %        19,12
+    ----------------- ------------ ------------
+
+    Section: Memory Workload Analysis Chart
+    WRN   The optional metric lts__average_gcomp_input_sector_success_rate.pct could not be found. Collecting it as an  
+          additional metric could enable the rule to provide more guidance.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                    768
+    Registers Per Thread             register/thread             255
+    Shared Memory Configuration Size           Kbyte           98,30
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block      Kbyte/block           67,58
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              80
+    Threads                                   thread          98 304
+    Uses Green Context                                             0
+    Waves Per SM                                                9,60
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           32
+    Block Limit Registers                 block            2
+    Block Limit Shared Mem                block            1
+    Block Limit Warps                     block           16
+    Theoretical Active Warps per SM        warp            4
+    Theoretical Occupancy                     %         6,25
+    Achieved Occupancy                        %         6,25
+    Achieved Active Warps Per SM           warp         4,00
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 93.75%                                                                                    
+          The 1.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 16. This kernel's theoretical occupancy (6.2%) is limited by the required amount of       
+          shared memory.                                                                                                
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- --------------
+    Metric Name                Metric Unit   Metric Value
+    -------------------------- ----------- --------------
+    Average DRAM Active Cycles       cycle   8 795 606,25
+    Total DRAM Elapsed Cycles        cycle  6 036 977 664
+    Average L1 Active Cycles         cycle 256 801 976,25
+    Total L1 Elapsed Cycles          cycle 21 168 118 732
+    Average L2 Active Cycles         cycle 133 289 397,67
+    Total L2 Elapsed Cycles          cycle 16 173 799 168
+    Average SM Active Cycles         cycle 256 801 976,25
+    Total SM Elapsed Cycles          cycle 21 168 118 732
+    Average SMSP Active Cycles       cycle 256 801 112,64
+    Total SMSP Elapsed Cycles        cycle 84 672 474 928
+    -------------------------- ----------- --------------
+
+    OPT   Est. Speedup: 5.762%                                                                                          
+          One or more L2 Slices have a much lower number of active cycles than the average number of active cycles.     
+          Maximum instance value is 10.93% above the average, while the minimum instance value is 16.18% below the      
+          average.                                                                                                      
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0,00
+    Branch Instructions              inst   11 443 200
+    Branch Efficiency                   %          100
+    Avg. Divergent Branches                          0
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 1.6%                                                                                            
+          This kernel has uncoalesced shared accesses resulting in a total of 132139008 excessive wavefronts (2% of the 
+          total 8016433152 wavefronts). Check the L1 Wavefronts Shared Excessive table for the primary source           
+          locations. The CUDA Best Practices Guide                                                                      
+           (https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#shared-memory-in-matrix-multiplication-c
+          -ab) has an example on optimizing shared memory accesses.                                                     
+

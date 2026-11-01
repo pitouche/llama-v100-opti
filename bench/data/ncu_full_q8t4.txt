@@ -1,0 +1,69 @@
+sudo: preserving the entire environment is not supported, '-E' is ignored
+==PROF== Connected to process 418034 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 2 CUDA devices (Total VRAM: 40599 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+  Device 1: NVIDIA GeForce GTX 1070, compute capability 6.1, VMM: yes, VRAM: 8105 MiB
+[mb] ok (backend=0x586e4e234b60 ctx=0x586e4e546950 so=/home/guile/llama-experiments/ollama-v100/lib/ollama/cuda_v12/libggml-cuda.so)
+{"shape":"q8_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":319.5,"us_min":319.5,"us_max":319.5,"val_maxerr":47.8041,"val_rel":23.2589}
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 19 passes
+{"shape":"q8_f5120x17408","T":4,"K":17408,"rows":5120,"us_med":156.7,"us_min":156.7,"us_max":156.7,"val_maxerr":151.8235,"val_rel":4.8485}
+==PROF== Disconnected from process 418034
+[418034] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)8, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)0>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (2560, 1, 1)x(32, 4, 1), Context 1, Stream 14, Device 0, CC 7.0
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ------------- ------------
+    Metric Name               Metric Unit Metric Value
+    ----------------------- ------------- ------------
+    DRAM Frequency          cycle/usecond       876,94
+    SM Frequency            cycle/nsecond         1,22
+    Elapsed Cycles                  cycle      131 195
+    Memory Throughput                   %        85,12
+    DRAM Throughput                     %        12,47
+    Duration                      usecond       107,01
+    L1/TEX Cache Throughput             %        90,03
+    L2 Cache Throughput                 %        61,39
+    SM Active Cycles                cycle   122 590,01
+    Compute (SM) Throughput             %        55,53
+    ----------------------- ------------- ------------
+
+    INF   The kernel is utilizing greater than 80.0% of the available compute or memory performance of the device. To   
+          further improve performance, work will likely need to be shifted from the most utilized to another unit.      
+          Start by analyzing L1 in the Memory Workload Analysis section.                                                
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  2 560
+    Registers Per Thread             register/thread              72
+    Shared Memory Configuration Size           Kbyte           32,77
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            3,07
+    # SMs                                         SM              80
+    Threads                                   thread         327 680
+    Uses Green Context                                             0
+    Waves Per SM                                                4,57
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           32
+    Block Limit Registers                 block            7
+    Block Limit Shared Mem                block           10
+    Block Limit Warps                     block           16
+    Theoretical Active Warps per SM        warp           28
+    Theoretical Occupancy                     %        43,75
+    Achieved Occupancy                        %        40,30
+    Achieved Active Warps Per SM           warp        25,79
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 56.25%                                                                                    
+          The 7.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 16. This kernel's theoretical occupancy (43.8%) is limited by the number of required      
+          registers.                                                                                                    
+

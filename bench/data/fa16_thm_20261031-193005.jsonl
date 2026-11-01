@@ -1,0 +1,4 @@
+{"run": "run1", "leg": "C-compact", "ctx": 131072, "prompt_tokens_api": 127712, "gen_tokens_api": 64, "wall_s": 183.7, "prompt_tps": 706.6, "eval_tps": 22.49}
+{"run": "run1", "leg": "A-prod", "ctx": 131072, "prompt_tokens_api": 127712, "gen_tokens_api": 64, "wall_s": 221.5, "prompt_tps": 584.6, "eval_tps": 22.5}
+{"run": "run2", "leg": "C-compact", "ctx": 131072, "prompt_tokens_api": 127712, "gen_tokens_api": 64, "wall_s": 184.0, "prompt_tps": 705.5, "eval_tps": 22.48}
+{"run": "run2", "leg": "A-prod", "ctx": 131072, "prompt_tokens_api": 127712, "gen_tokens_api": 64, "wall_s": 221.5, "prompt_tps": 584.5, "eval_tps": 22.45}

@@ -1,0 +1,163 @@
+[583390] mb_gemm_pf@127.0.0.1
+  void cutlass::Kernel2<cutlass_70_tensorop_s884gemm_f16_128x128_tn_align8>(T1::Params) (128, 17, 1)x(128, 1, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    ---------------------------------------------------------------------- --------------- ------------
+    Metric Name                                                                Metric Unit Metric Value
+    ---------------------------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                                             Mbyte       586,31
+    dram__bytes_write.sum                                                            Mbyte       141,77
+    dram__throughput.avg.pct_of_peak_sustained_elapsed                                   %        18,20
+    gpu__time_duration.sum                                                         msecond         4,45
+    launch__block_size                                                                              128
+    launch__grid_size                                                                             2 176
+    launch__occupancy_limit_blocks                                                   block           32
+    launch__occupancy_limit_registers                                                block            2
+    launch__occupancy_limit_shared_mem                                               block            2
+    launch__registers_per_thread                                           register/thread          236
+    launch__shared_mem_per_block_dynamic                                       Kbyte/block        32,77
+    launch__shared_mem_per_block_static                                         byte/block            0
+    launch__waves_per_multiprocessor                                                              13,60
+    lts__t_sectors_op_read.sum                                                      sector  175 754 538
+    lts__t_sectors_op_read_lookup_hit.sum                                           sector  157 477 313
+    lts__t_sectors_op_read_lookup_miss.sum                                          sector   18 294 802
+    sm__cycles_elapsed.max                                                           cycle    5 494 079
+    sm__inst_executed_pipe_tensor_op_hmma.sum                                         inst  713 031 680
+    sm__pipe_tensor_op_hmma_cycles_active.avg.pct_of_peak_sustained_active               %        82,79
+    sm__warps_active.avg.pct_of_peak_sustained_active                                    %        12,27
+    smsp__issue_active.avg.pct_of_peak_sustained_active                                  %        52,32
+    ---------------------------------------------------------------------- --------------- ------------
+
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ------------- ------------
+    Metric Name               Metric Unit Metric Value
+    ----------------------- ------------- ------------
+    DRAM Frequency          cycle/usecond       877,12
+    SM Frequency            cycle/nsecond         1,23
+    Elapsed Cycles                  cycle    5 501 500
+    Memory Throughput                   %        73,34
+    DRAM Throughput                     %        18,20
+    Duration                      msecond         4,45
+    L1/TEX Cache Throughput             %        74,83
+    L2 Cache Throughput                 %        53,75
+    SM Active Cycles                cycle 5 382 743,70
+    Compute (SM) Throughput             %        81,14
+    ----------------------- ------------- ------------
+
+    INF   The kernel is utilizing greater than 80.0% of the available compute or memory performance of the device. To   
+          further improve performance, work will likely need to be shifted from the most utilized to another unit.      
+          Start by analyzing workloads in the Compute Workload Analysis section.                                        
+
+    Section: GPU Speed Of Light Roofline Chart
+    INF   The ratio of peak float (fp32) to double (fp64) performance on this device is 2:1. The kernel achieved  close 
+          to 0% of this device's fp32 peak performance and 0% of its fp64 peak performance. See the Kernel Profiling    
+          Guide (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline) for more details on         
+          roofline analysis.                                                                                            
+
+    Section: Compute Workload Analysis
+    -------------------- ----------- ------------
+    Metric Name          Metric Unit Metric Value
+    -------------------- ----------- ------------
+    Executed Ipc Active   inst/cycle         2,09
+    Executed Ipc Elapsed  inst/cycle         2,05
+    Issue Slots Busy               %        52,32
+    Issued Ipc Active     inst/cycle         2,09
+    SM Busy                        %        82,79
+    -------------------- ----------- ------------
+
+    OPT   Shared is the highest-utilized pipeline (82.8%) based on active cycles, taking into account the rates of its  
+          different instructions. It is the logical sum of several other pipelines which can't achieve full             
+          utilization on their own. It executes 64- and 16-bit floating point and tensor operations. It's dominated by  
+          its Tensor (FP) sub-pipeline. The pipeline is over-utilized and likely a performance bottleneck. Based on     
+          the number of executed instructions, the highest utilized pipeline (82.8%) is Tensor (FP). It executes        
+          16-bit floating point tensor operations. Comparing the two, the overall pipeline utilization appears to be    
+          caused by frequent, low-latency instructions. See the Kernel Profiling Guide                                  
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-decoder) or hover over the          
+          pipeline name to understand the workloads handled by each pipeline. The Instruction Statistics section shows  
+          the mix of executed instructions in this kernel.                                                              
+
+    Section: Memory Workload Analysis
+    ----------------- ------------ ------------
+    Metric Name        Metric Unit Metric Value
+    ----------------- ------------ ------------
+    Memory Throughput Gbyte/second       163,45
+    Mem Busy                     %        73,34
+    Max Bandwidth                %        59,25
+    L1/TEX Hit Rate              %         1,43
+    L2 Hit Rate                  %        89,89
+    Mem Pipes Busy               %        25,62
+    ----------------- ------------ ------------
+
+    Section: Memory Workload Analysis Chart
+    WRN   The optional metric lts__average_gcomp_input_sector_success_rate.pct could not be found. Collecting it as an  
+          additional metric could enable the rule to provide more guidance.                                             
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   128
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  2 176
+    Registers Per Thread             register/thread             236
+    Shared Memory Configuration Size           Kbyte           65,54
+    Driver Shared Memory Per Block        byte/block               0
+    Dynamic Shared Memory Per Block      Kbyte/block           32,77
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM              80
+    Threads                                   thread         278 528
+    Uses Green Context                                             0
+    Waves Per SM                                               13,60
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           32
+    Block Limit Registers                 block            2
+    Block Limit Shared Mem                block            2
+    Block Limit Warps                     block           16
+    Theoretical Active Warps per SM        warp            8
+    Theoretical Occupancy                     %        12,50
+    Achieved Occupancy                        %        12,27
+    Achieved Active Warps Per SM           warp         7,86
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 87.5%                                                                                     
+          The 2.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 16. This kernel's theoretical occupancy (12.5%) is limited by the number of required      
+          registers. This kernel's theoretical occupancy (12.5%) is limited by the required amount of shared memory.    
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- -------------
+    Metric Name                Metric Unit  Metric Value
+    -------------------------- ----------- -------------
+    Average DRAM Active Cycles       cycle    711 013,09
+    Total DRAM Elapsed Cycles        cycle   125 023 872
+    Average L1 Active Cycles         cycle  5 382 743,70
+    Total L1 Elapsed Cycles          cycle   439 363 226
+    Average L2 Active Cycles         cycle  5 210 980,98
+    Total L2 Elapsed Cycles          cycle   334 813 440
+    Average SM Active Cycles         cycle  5 382 743,70
+    Total SM Elapsed Cycles          cycle   439 363 226
+    Average SMSP Active Cycles       cycle  5 382 632,78
+    Total SMSP Elapsed Cycles        cycle 1 757 452 904
+    -------------------------- ----------- -------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0,00
+    Branch Instructions              inst    1 470 976
+    Branch Efficiency                   %          100
+    Avg. Divergent Branches                          0
+    ------------------------- ----------- ------------
+
+    OPT   Est. Speedup: 1.9%                                                                                            
+          This kernel has uncoalesced shared accesses resulting in a total of 4456448 excessive wavefronts (2% of the   
+          total 229924864 wavefronts). Check the L1 Wavefronts Shared Excessive table for the primary source            
+          locations. The CUDA Best Practices Guide                                                                      
+           (https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#shared-memory-in-matrix-multiplication-c
+          -ab) has an example on optimizing shared memory accesses.                                                     
+

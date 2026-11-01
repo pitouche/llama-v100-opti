@@ -1,0 +1,8 @@
+{"tag": "A_cold_28k", "wall_s": 37.28, "prompt_tokens": 27976, "prompt_s": 34.986, "gen_s": 0.068, "prefill_tps_reported": 799.6, "resp": "OK-BENCH"}
+{"tag": "B_identique", "wall_s": 0.2, "prompt_tokens": 27976, "prompt_s": 0.091, "gen_s": 0.066, "prefill_tps_reported": 307185.5, "resp": "OK-BENCH"}
+{"tag": "C_avec_queue", "wall_s": 14.06, "prompt_tokens": 36413, "prompt_s": 13.934, "gen_s": 0.072, "prefill_tps_reported": 2613.2, "resp": "OK-BENCH"}
+{"tag": "A_cold_28k", "wall_s": 4.15, "prompt_tokens": 27976, "prompt_s": 0.905, "gen_s": 0.067, "prefill_tps_reported": 30899.8, "resp": "OK-BENCH"}
+{"tag": "B_identique", "wall_s": 0.2, "prompt_tokens": 27976, "prompt_s": 0.091, "gen_s": 0.066, "prefill_tps_reported": 306633.3, "resp": "OK-BENCH"}
+{"tag": "C_avec_queue", "wall_s": 13.73, "prompt_tokens": 36413, "prompt_s": 13.604, "gen_s": 0.07, "prefill_tps_reported": 2676.6, "resp": "OK-BENCH"}
+{"tag": "D_meme_queue", "wall_s": 0.22, "prompt_tokens": 36413, "prompt_s": 0.094, "gen_s": 0.068, "prefill_tps_reported": 388953.0, "resp": "OK-BENCH"}
+{"tag": "E_cold_44k_runner200k", "wall_s": 75.44, "prompt_tokens": 51030, "prompt_s": 72.62, "prefill_tps": 702.7}

@@ -1,0 +1,100 @@
+##### PROD (Q6 T=4)
+==PROF== Connected to process 408716 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x637c6a0d32b0 ctx=0x637c6a3e5270 so=/home/guile/llama-experiments/ollama-v100/lib/ollama/cuda_v12/libggml-cuda.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":185.3,"us_min":177.2,"us_max":202839.1,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 408716
+[408716] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)4>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (4352, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,21
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        59,17
+    gpu__time_duration.avg                                     usecond       148,90
+    l1tex__t_sector_hit_rate.pct                                     %        82,99
+    launch__registers_per_thread                       register/thread           96
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 441 789
+    sm__inst_executed.avg                                         inst   449 779,20
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        63,36
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        26,72
+    -------------------------------------------------- --------------- ------------
+
+##### q6rp2 (Q6 T=4)
+==PROF== Connected to process 408738 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x5c10ed5a9c10 ctx=0x5c10ed8bbc90 so=/home/guile/llama-experiments/h2/cupti129-test/e2/h2lib/lib/libggml-cuda-q6rp2.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":197.6,"us_min":190.5,"us_max":201801.7,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 408738
+[408738] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)2, (bool)1>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (8704, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,23
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        52,52
+    gpu__time_duration.avg                                     usecond       164,29
+    l1tex__t_sector_hit_rate.pct                                     %        89,06
+    launch__registers_per_thread                       register/thread           96
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 358 596
+    sm__inst_executed.avg                                         inst   497 324,80
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        62,83
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        28,49
+    -------------------------------------------------- --------------- ------------
+
+##### q6rp1 (Q6 T=4)
+==PROF== Connected to process 408760 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x6269606d5bd0 ctx=0x6269609e7c50 so=/home/guile/llama-experiments/h2/cupti129-test/e2/h2lib/lib/libggml-cuda-q6rp1.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":219.1,"us_min":218.1,"us_max":206938.1,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 408760
+[408760] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)1, (bool)1>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (17408, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,23
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        47,86
+    gpu__time_duration.avg                                     usecond       177,70
+    l1tex__t_sector_hit_rate.pct                                     %        93,30
+    launch__registers_per_thread                       register/thread           56
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 363 678
+    sm__inst_executed.avg                                         inst      610 368
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        71,48
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        51,50
+    -------------------------------------------------- --------------- ------------
+
+##### q6rp8 (Q6 T=4)
+==PROF== Connected to process 408782 (/home/guile/llama-experiments/bench/mb_mmvq)
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 32494 MiB):
+  Device 0: Tesla V100-PCIE-32GB, compute capability 7.0, VMM: yes, VRAM: 32494 MiB
+[mb] ok (backend=0x593ee2c1aa80 ctx=0x593ee2f2cb00 so=/home/guile/llama-experiments/h2/cupti129-test/e2/h2lib/lib/libggml-cuda-q6rp8.so)
+==PROF== Profiling "mul_mat_vec_q": 0%....50%....100% - 3 passes
+{"shape":"q6_f17408x5120","T":4,"K":5120,"rows":17408,"us_med":195.6,"us_min":192.5,"us_max":200497.1,"val_maxerr":1143.7692,"val_rel":1.9046}
+==PROF== Disconnected from process 408782
+[408782] mb_mmvq@127.0.0.1
+  void mul_mat_vec_q<(ggml_type)14, (int)4, (bool)0, (bool)0, (bool)0, (bool)0, (int)8, (bool)1>(const void *, const void *, const int *, ggml_cuda_mm_fusion_args_device, float *, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, uint3, unsigned int, unsigned int, unsigned int, unsigned int) (2176, 1, 1)x(32, 4, 1), Context 1, Stream 13, Device 0, CC 7.0
+    Section: Command line profiler metrics
+    -------------------------------------------------- --------------- ------------
+    Metric Name                                            Metric Unit Metric Value
+    -------------------------------------------------- --------------- ------------
+    dram__bytes_read.sum                                         Mbyte        73,56
+    dram__throughput.avg.pct_of_peak_sustained_elapsed               %        52,94
+    gpu__time_duration.avg                                     usecond       174,18
+    l1tex__t_sector_hit_rate.pct                                     %        72,71
+    launch__registers_per_thread                       register/thread          144
+    lts__t_sectors_srcunit_tex_op_read.sum                      sector    2 888 990
+    sm__inst_executed.avg                                         inst   388 388,80
+    sm__issue_active.avg.pct_of_peak_sustained_active                %        47,35
+    sm__warps_active.avg.pct_of_peak_sustained_active                %        16,28
+    -------------------------------------------------- --------------- ------------
+

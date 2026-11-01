@@ -1,0 +1,10 @@
+sofiles/*
+!sofiles/README.md
+!sofiles/sofiles.sha256
+big/*
+!big/README.md
+!big/big.sha256
+repos/*
+__pycache__/
+*.pyc
+*.log

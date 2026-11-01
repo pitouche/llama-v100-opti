@@ -1,0 +1,6 @@
+{"leg": "A-prod", "mode": "cold", "ctx_target": 16384, "prompt_words_sent": 12603, "prompt_tokens_api": 15402, "gen_tokens_api": 64, "wall_s": 19.9}
+{"leg": "A-prod", "mode": "warm", "ctx_target": 32768, "prompt_words_sent": 25206, "prompt_tokens_api": 30745, "gen_tokens_api": 64, "wall_s": 23.7}
+{"leg": "A-prod", "mode": "warm", "ctx_target": 65536, "prompt_words_sent": 50412, "prompt_tokens_api": 61430, "gen_tokens_api": 64, "wall_s": 55.4}
+{"leg": "B-42d9581", "mode": "cold", "ctx_target": 16384, "prompt_words_sent": 12603, "prompt_tokens_api": 15402, "gen_tokens_api": 64, "wall_s": 20.2}
+{"leg": "B-42d9581", "mode": "warm", "ctx_target": 32768, "prompt_words_sent": 25206, "prompt_tokens_api": 30745, "gen_tokens_api": 64, "wall_s": 23.8}
+{"leg": "B-42d9581", "mode": "warm", "ctx_target": 65536, "prompt_words_sent": 50412, "prompt_tokens_api": 61430, "gen_tokens_api": 64, "wall_s": 56.0}
