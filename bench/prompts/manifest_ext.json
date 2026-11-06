@@ -1,0 +1,43 @@
+{
+ "49152": {
+  "prompt_sha256": "479c4805ef6418fbe227b9d78c4fba0b93f9ec4696288a6284c6505ac07cab10",
+  "n_tokens": 49152,
+  "n_chars": 251853
+ },
+ "81920": {
+  "prompt_sha256": "e6510f1cb9c9b9096cfeaa9141d5d989d92354195bc2eb4789f3c69a3aba0cb4",
+  "n_tokens": 81920,
+  "n_chars": 419752
+ },
+ "114688": {
+  "prompt_sha256": "bb19b277a932078c77830f10544a5815cc02e36e119f010d9fb2a1435904edae",
+  "n_tokens": 114688,
+  "n_chars": 587656
+ },
+ "131072": {
+  "prompt_sha256": "2f9c8220fe312ae553dfda6dde88112541caab103c70f15451ebebd77aa6cbf7",
+  "n_tokens": 131072,
+  "n_chars": 671604
+ },
+ "147456": {
+  "prompt_sha256": "be42f4eec633f1809181137283afa20319e3e4f27603276fa71a54f4907d0961",
+  "n_tokens": 147456,
+  "n_chars": 755550
+ },
+ "163840": {
+  "prompt_sha256": "268069975b749496cde39b40807d5bd9bfe577dd3a3cc533ead4b2ff3040c10e",
+  "n_tokens": 163840,
+  "n_chars": 839503
+ },
+ "167568": {
+  "prompt_sha256": "45b9664537ac5a6fdfbfc640bea6fb118dba671f2e371672eb33e7c73f766b02",
+  "n_tokens": 167568,
+  "n_chars": 858606
+ },
+ "_meta": {
+  "method": "canonical*3, detok_fix(ids_ext[:N]), U+0120->U+0020 ; stabilit\u00e9 re-tokenize v\u00e9rifi\u00e9e ; points \u2264107340 valid\u00e9s contre le manifest 02/11",
+  "tokenizer": "/home/guile/llama-experiments/build/cuda-v100-volta/bin/llama-tokenize",
+  "n_tokens_ext_total": 322018,
+  "generated": "2026-11-06 03:53:43"
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "16384": {
+  "prompt_sha256": "1df0589038d1eaf4d3413de2548da6fb640069d03fea701b1074f3efab5b464c",
+  "n_tokens": 16384,
+  "n_chars": 83953
+ },
+ "32768": {
+  "prompt_sha256": "ec2c56498f77699bd45b746f909862c24b225bbe20da1ef8cf87450b252d8601",
+  "n_tokens": 32768,
+  "n_chars": 167902
+ },
+ "65536": {
+  "prompt_sha256": "93fc0a3208fe3a6c292e8b73f3124ff191df4e19a1fb1dce28e2297cc923d33a",
+  "n_tokens": 65536,
+  "n_chars": 335803
+ },
+ "98304": {
+  "prompt_sha256": "fa44d7a9420396581820b6ef43f1797dd5483b9c699b835e6d18729ec4d04825",
+  "n_tokens": 98304,
+  "n_chars": 503704
+ },
+ "107340": {
+  "prompt_sha256": "718d8ff196c29a7b8613e30770a50f9ae0cd8ea218cbe7e6459edf742d7967ab",
+  "n_tokens": 107340,
+  "n_chars": 550000
+ },
+ "_meta": {
+  "canonical_sha256": "44b1737bb5d7034a0eaa18dd346567f78befa1b7949a6f8a227c129f1d159b91",
+  "n_tokens_total": 107340,
+  "tokenizer": "/home/guile/llama-experiments/build/cuda-v100-volta/bin/llama-tokenize",
+  "gguf_sha256": "493301830a596b8ad56dc1329f80bbcb578c8e910da395feafdc9cd8263430bb",
+  "method": "detok_fix(ids[:N]) = join(vocab GGUF) + normalisation U+0120->U+0020 (valid\u00e9e 02/11, TRUNCATION_VALIDATION_20261102.md)",
+  "points_curves": [
+   16384,
+   32768,
+   65536,
+   98304
+  ],
+  "pair_h2": [
+   107340
+  ],
+  "generated": "2026-11-02 11:32:14"
+ }
+}

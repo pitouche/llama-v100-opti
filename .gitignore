@@ -8,3 +8,4 @@ repos/*
 __pycache__/
 *.pyc
 *.log
+bench/data/progress.json   # état transitoire du superviseur, régénéré

@@ -88,8 +88,12 @@ llama-v100-opti/
 ├── bench/
 │   ├── VALIDATION.md    ← LA SECTION BENCH : protocole + re-validation de chaque chiffre
 │   ├── validate_all.sh  ← orchestrateur de re-measurement (superviseur + lock)
-│   ├── bench/           ← harnais communs (superviseur, night_bench, microbenches, A/B) + données brutes
-│   └── docs/            ← bilans, notes de protocole, règles GPU/CUPTI
+│   ├── bench/           ← harnais (superviseur, night_bench, microbenches, A/B, sweep Q6 170k)
+│   ├── data/            ← données brutes des campagnes (jsonl) ; serveur log hors git
+│   ├── charts/          ← graphiques + PDF du sweep Q6 (régénérables sans GPU)
+│   ├── prompts/         ← prompts de charge figés (canonical + 11 points, sha256-manifestés)
+│   ├── runs/            ← captures de runs figés (profilage prod)
+│   └── docs/            ← bilans, notes de protocole, règles GPU/CUPTI, synthèse sweep Q6
 ├── repos/               ← un repo git par optimisation (self-contained)
 │   ├── t3-volta-small/  fa16-compact/  t1-mmsmt/
 │   ├── mmvq-clos/       b2048/         mtp-nmax/       h2/
@@ -137,6 +141,20 @@ porte sa section « Re-validation » (commande exacte + référence à battre = 
 Le cas H2 y figure en double : V12 (re-jouer le **GO** run9c3) et V4
 (re-jouer le **NO-GO** H2 ON/OFF sur le `.so` T3) — le seul GO de la pile qui a
 ensuite été retiré.
+
+### 5.1. Sweep Q6_K 170k — la pile S0→S6 mesurée sur 11 contextes (06/11/2026)
+
+Campagne de mesure de l'apport de chaque brique (S0→S6, 11 contextes 16k→164k,
+MTP ON/OFF) : **decode OFF** +5 % (16k) → **+43 % (160k)**, T3 ≈ 2/3 du delta à
+long contexte ; batch et FA16 = leviers prefill ; MTP ×2,6–2,8 stable S2→S6.
+Elle a aussi identifié et cicatrisé le « creux 112k » de la courbe ON brute
+(artefact du warm-up MTP dans la moyenne — la vraie cicatrice restante est
+l'acceptance 0,65 vs 0,84, effet contenu, commun à tous les états).
+
+- Synthèse + méthode (brut / plateau / indexé) : **`bench/docs/sweep_q6_170k_summary.md`**
+- Bruts : `bench/data/sweep_q6_170k.jsonl` · Graphiques + PDF : `bench/charts/`
+- Re-lancer un point : `sweep_q6_170k.py <S#>` via le superviseur (idempotent) ;
+  recalculer les graphiques sans GPU : `plot_q6_170k.py` + `make_pdf.py`.
 
 ## 6. Machine de référence & prérequis
 
